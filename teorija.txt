@@ -1,0 +1,119 @@
+---------------------------- Interface ---------------------------
+Interfejsi su u osnovi skup pravila (specifikacija) koje objekti moraju zadovoljiti kada ih implementiraju.
+Oni opisuju strukturu objekta i definiraju koje osobine (properties) i metode (methods) objekt mora imati.
+
+Interfejs (Interface): Interfejs u TypeScriptu je apstrakcija koja definiše kontrakt, 
+tj. koje osobine (properties) i metode objekti koji implementiraju taj interfejs moraju imati.
+
+interface Osoba {
+  ime: string;
+  godine: number;
+}
+
+---------------------
+Definisanje Objekta sa Interfejsom:
+Možeš koristiti definisani interfejs da kažeš TypeScriptu kako bi trebao izgledati objekat.
+Na primer:
+
+let korisnik: Osoba = {
+  ime: "Marko",
+  godine: 25,
+};
+
+Ovde, korisnik mora imati ime (string) i godine (number) kao što je navedeno u interfejsu Osoba.
+
+----------------------
+Funkcije sa Interfejsima:
+Interfejsi se takođe mogu koristiti za definisanje tipova funkcija:
+
+interface PraviloZaPrikaz {
+  (tekst: string): void;
+}
+
+let prikaziNaEkranu: PraviloZaPrikaz = function (tekst) {
+  console.log(tekst);
+};
+
+Ovde, PraviloZaPrikaz definiše tip funkcije koja prima string i ne vraća ništa (void).
+-----------------------
+Nasleđivanje Interfejsa:
+Interfejsi mogu nasleđivati druge interfejse, omogućavajući grupisanje i proširivanje funkcionalnosti:
+
+interface Radnik extends Osoba {
+  posao: string;
+}
+
+let zaposleni: Radnik = {
+  ime: "Ana",
+  godine: 30,
+  posao: "Razvojni inženjer",
+};
+
+Ovde, Radnik nasleđuje sve osobine iz interfejsa Osoba i dodaje sopstvenu osobinu posao.
+
+-------------------------- Custom Types --------------------------
+
+U TypeScriptu, pored korišćenja interfejsa, možemo definisati prilagođene tipove
+korišćenjem ključne reči type. Ključna razlika između type i interface često je stvar stila,
+ali postoje i određene razlike u funkcionalnosti.
+
+----------------------------
+Definisanje Jednostavnog Tipa:
+
+type Broj = number;
+
+let mojBroj: Broj = 42;
+
+Ovde, Broj predstavlja sinonim za tip number.
+
+-----------------------------
+Definisanje Unije Tipova:
+
+type Status = "Aktivan" | "Neaktivan";
+
+let korisnikStatus: Status = "Aktivan";
+
+Ovde, Status može biti ili "Aktivan" ili "Neaktivan".
+
+------------------------------
+Definisanje Tipova Objekata:
+
+type Auto = {
+  marka: string;
+  model: string;
+  godina: number;
+};
+
+let mojAuto: Auto = {
+  marka: "Toyota",
+  model: "Camry",
+  godina: 2020,
+};
+
+Ovde, Auto je tip koji opisuje strukturu objekta.
+
+---------------------------------
+Generički Tipovi:
+
+Generički tipovi (generic types) u TypeScriptu omogućavaju ti pisanje koda 
+koji je fleksibilan i može raditi s različitim tipovima podataka. 
+Generički tipovi omogućavaju ti da odrediš tip neke promenljive ili 
+funkcije kao parametar prilikom njenog korišćenja.
+
+type Kontejner<T> = {
+  podaci: T;
+};
+
+let brojevi: Kontejner<number> = { podaci: 42 };
+let tekst: Kontejner<string> = { podaci: "Hello, TypeScript!" };
+
+Ovde, Kontejner je generički tip koji može raditi s različitim tipovima podataka.
+
+---------------------------------
+Tipovi Funkcija:
+
+type Kombinacija = (a: number, b: number) => number;
+
+let sabiranje: Kombinacija = (a, b) => a + b;
+
+Ovde, Kombinacija je tip funkcije koja prima dva broja i vraća broj.
