@@ -116,4 +116,4 @@ type Kombinacija = (a: number, b: number) => number;
 
 let sabiranje: Kombinacija = (a, b) => a + b;
 
-Ovde, Kombinacija je tip funkcije koja prima dva broja i vraća broj.
+Ovde, Kombinacija je tip funkcije koja prima dva broja i vraća broj
