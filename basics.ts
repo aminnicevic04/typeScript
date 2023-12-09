@@ -1,6 +1,6 @@
 let userName = "max";
 
-// userName = 34 ; //error
+// userName = 34 ;  //error
 userName = "amci";
 
 // ----------------------
