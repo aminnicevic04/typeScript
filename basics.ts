@@ -111,6 +111,12 @@ class AuthCredentials implements Credentials {
   userName: string; // ovde imamo credentials i plus dodajemo jos userName
 }
 
+// ovo je mnogo krindz sto se sad radi, ali medina mene nasmejava ja ne mogu
+// dalje allaha mi evo moram da kucam ovako
+// ne znam allha mi ja cu vrisnut sad almoram da budem ozbiljan
+// amine budi ozbiljan moras!!!
+// NAMOGUU NAMOGU NAMOGU NAMOGU NAMOGU
+
 function login(credentials: Credentials) {}
 
 login(new AuthCredentials());
@@ -167,8 +173,14 @@ role = "editor";
 
 //----------------------------
 
-function performAction(action: string | number, role: Role) {
-  if (role === "admin" && typeof action === "string") {
+enum Roleuser {
+  ADMIN = "admin",
+  MODERATOR = "moderator",
+  MEMBER = "member",
+}
+
+function performAction(action: string | number, role: Roleuser) {
+  if (role === Roleuser.ADMIN && typeof action === "string") {
     // ...
   }
 }
