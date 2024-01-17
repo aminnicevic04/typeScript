@@ -17,10 +17,10 @@ let isValid = true;
 
 // -----------------------
 
-type StrOrNum = string | number;
+type StrOrNum = string | number; //kreiramo custom type koji je union
 
 // let userID: string | number = "abc1";
-let userID: StrOrNum;
+let userID: StrOrNum; //ovde ga koristimo umesto union
 userID = 123;
 
 // -----------------------
@@ -63,12 +63,12 @@ function add(a: number, b: number): number {
 //------------------------
 //definiting custom types with interface
 
-type AddFn = (a: number, b: number) => number;
+type AddFn = (a: number, b: number) => number; //kreiramo type
 function calculate(
   a: number,
   b: number,
   //   calcFn: (a: number, b: number) => number // oznacavamo da je funkcija i da ocekujemo broj
-  calcFn: AddFn
+  calcFn: AddFn //koristimo type
 ) {
   calcFn(a, b);
 }
@@ -110,12 +110,6 @@ class AuthCredentials implements Credentials {
   password: string;
   userName: string; // ovde imamo credentials i plus dodajemo jos userName
 }
-
-// ovo je mnogo krindz sto se sad radi, ali medina mene nasmejava ja ne mogu
-// dalje allaha mi evo moram da kucam ovako
-// ne znam allha mi ja cu vrisnut sad almoram da budem ozbiljan
-// amine budi ozbiljan moras!!!
-// NAMOGUU NAMOGU NAMOGU NAMOGU NAMOGU
 
 function login(credentials: Credentials) {}
 
