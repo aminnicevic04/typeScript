@@ -8,8 +8,6 @@ import { type PropsWithChildren } from "react";
 //   children: ReactNode;
 // };
 
-type CourseGoalProps = PropsWithChildren<{ title: string }>;
-
 // const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => { //second way
 //   return (
 //     <article>
@@ -22,7 +20,13 @@ type CourseGoalProps = PropsWithChildren<{ title: string }>;
 //   );
 // };
 
-function CourseGoal({ title, children }: CourseGoalProps) {
+type CourseGoalProps = PropsWithChildren<{
+  id: number;
+  title: string;
+  onDelete: (id: number) => void;
+}>;
+
+function CourseGoal({ title, id, children, onDelete }: CourseGoalProps) {
   //first way
   return (
     <article>
@@ -30,7 +34,7 @@ function CourseGoal({ title, children }: CourseGoalProps) {
         <h2>{title}</h2>
         <p>{children}</p>
       </div>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 }
