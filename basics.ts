@@ -186,6 +186,7 @@ let roles: Array<Role>;
 roles: ["admin", "editor"];
 
 type DataStorage<T> = {
+  //custom generic type
   storage: T[];
   add: (data: T) => void; //void znaci da ne vraca nista
 };
