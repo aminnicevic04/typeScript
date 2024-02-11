@@ -98,7 +98,7 @@ Generički Tipovi:
 Generički tipovi (generic types) u TypeScriptu omogućavaju ti pisanje koda 
 koji je fleksibilan i može raditi s različitim tipovima podataka. 
 Generički tipovi omogućavaju ti da odrediš tip neke promenljive ili 
-funkcije kao parametar prilikom njenog korišćenja.
+funkcije kao parametar prilikom njenog korišćenja...
 
 type Kontejner<T> = {
   podaci: T;
